@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lego Collection - Set Details</title>
+  <link rel="stylesheet" href="/css/main.css">
+</head>
+
+<body tabindex="-1">
+    <%- include('partials/navbar', { page: "" }) %>
+  
+  <br>
+
+  <div class="container mx-auto p-4">
+
+   
+  
+    <br />
+  
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+      
+      <div class="prose">
+        <p>
+          <span class="font-bold">Name:</span> <%= set.name %> <br />
+          <span class="font-bold">Phone:</span> <%= set.phone %> <br />
+          <span class="font-bold">Payment Type:</span> <%= set.Theme.name %> <br />
+          <span class="font-bold">Completed Payment:</span> <%= set.paid %> <br />
+          <span class="font-bold">Additional Information:</span> <%= set.ad_info %> <br />
+          <span class="font-bold">Allergies:</span> <%= set.allergies %> <br>
+          <div id="quote" class="py-3"></div>
+          <br />
+          <a class="btn btn-success btn-sm" href="/lego/editSet/<%= set.set_num %>">EDIT</a>
+          <a class="btn btn-primary btn-sm" href="#" onclick="history.back(); return false;">RETURN</a>
+        </p>
+      </div>
+    </div>
+  
+  </div>
+  
+
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      fetch("https://quotable.io/random")
+        .then(response => response.json())
+        .then(data => {
+          const quoteElement = document.getElementById("quote");
+          quoteElement.innerHTML = `<blockquote>"${data.content}" - ${data.author}</blockquote>`;
+        })
+        .catch(error => console.error("Error fetching quote:", error));
+    });
+  </script>
+
+
+<br>
+</body>
+
+</html>

@@ -1,0 +1,23 @@
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lego Collection - assignment 5</title>
+    <link rel="stylesheet" href="/css/main.css">
+  </head>
+
+<div class="navbar bg-base-100">
+    <div class="flex-1">
+      <a class="btn btn-ghost normal-case text-xl" href="/">HOME</a>
+    </div>
+  
+    <div class="navbar-center hidden sm:flex">
+      <ul class="menu menu-horizontal px-1">
+       
+        <li><a class="<%= (page == '/lego/addSet') ? 'active' : '' %>" href="/lego/addSet"> Add Form </a></li>
+        <li><a class="<%= (page == '/lego/sets') ? 'active' : '' %>" href="/lego/sets"> View List </a></li>
+        
+      </ul>
+    </div>
+  </div>
+
+ 
